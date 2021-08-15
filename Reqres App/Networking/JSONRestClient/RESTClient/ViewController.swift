@@ -1,8 +1,9 @@
 //
 //  ViewController.swift
-//  Reqres App
+//  RESTClient
 //
-//  Created by Girish Parate on 15/08/21.
+//  Created by Alexander Gaidukov on 11/18/16.
+//  Copyright © 2016 Alexander Gaidukov. All rights reserved.
 //
 
 import UIKit
@@ -11,9 +12,8 @@ class ViewController: UIViewController {
     
     static let sharedWebClient = WebClient.init(baseUrl: "https://reqres.in/api")
     
-    @IBOutlet var tableview: UITableView!
-    
-//    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var friends: [UserItem] = [] {
         didSet {
@@ -25,8 +25,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableview.dataSource = self
-        tableview.tableFooterView = UIView(frame: .zero)
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView(frame: .zero)
         loadFriends()
     }
     
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
     @IBAction private func loadFriends() {
         friendsTask?.cancel()
         
-//        activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
         let exampleDict: [String: Any] = [
                 "per_page" : 20,         // type: String
             ]
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
             guard let controller = self else { return }
             
             DispatchQueue.main.async {
-//                controller.activityIndicator.stopAnimating()
+                controller.activityIndicator.stopAnimating()
                 
                 if let friends = response.value?.data {
                     controller.friends = friends
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     }
     
     private func updateUI() {
-        tableview.reloadData()
+        tableView.reloadData()
     }
 }
 
@@ -98,6 +98,4 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
 }
-
-
 
