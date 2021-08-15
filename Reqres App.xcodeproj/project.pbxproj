@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		266F6DDC57AF76A041C9E289 /* Pods_Reqres_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929074AE6B25CC4F8ED43BD1 /* Pods_Reqres_App.framework */; };
-		F414F33F26C91BF0000511CA /* DemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414F33E26C91BF0000511CA /* DemoController.swift */; };
 		F416D74226C900FA00BDD354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F416D74126C900FA00BDD354 /* AppDelegate.swift */; };
 		F416D74426C900FA00BDD354 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F416D74326C900FA00BDD354 /* SceneDelegate.swift */; };
 		F416D74626C900FA00BDD354 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F416D74526C900FA00BDD354 /* ViewController.swift */; };
@@ -27,15 +26,12 @@
 		F435BFAE26C90A0D00F1C777 /* CacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435BFAB26C90A0D00F1C777 /* CacheItem.swift */; };
 		F435BFB326C90A2800F1C777 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435BFB126C90A2800F1C777 /* User.swift */; };
 		F435BFB426C90A2800F1C777 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435BFB226C90A2800F1C777 /* CustomError.swift */; };
-		F435BFB726C9175F00F1C777 /* AppButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = F435BFB626C9175F00F1C777 /* AppButton.xib */; };
-		F435BFBA26C9184A00F1C777 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435BFB926C9184A00F1C777 /* AppButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5C9B8AC645CCD3406458AC1E /* Pods-Reqres App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reqres App.release.xcconfig"; path = "Target Support Files/Pods-Reqres App/Pods-Reqres App.release.xcconfig"; sourceTree = "<group>"; };
 		929074AE6B25CC4F8ED43BD1 /* Pods_Reqres_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reqres_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAB3E6B0979645A29103EBF /* Pods-Reqres App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reqres App.debug.xcconfig"; path = "Target Support Files/Pods-Reqres App/Pods-Reqres App.debug.xcconfig"; sourceTree = "<group>"; };
-		F414F33E26C91BF0000511CA /* DemoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoController.swift; sourceTree = "<group>"; };
 		F416D73E26C900FA00BDD354 /* Reqres App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reqres App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F416D74126C900FA00BDD354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F416D74326C900FA00BDD354 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,8 +52,6 @@
 		F435BFAB26C90A0D00F1C777 /* CacheItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheItem.swift; sourceTree = "<group>"; };
 		F435BFB126C90A2800F1C777 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F435BFB226C90A2800F1C777 /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
-		F435BFB626C9175F00F1C777 /* AppButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppButton.xib; sourceTree = "<group>"; };
-		F435BFB926C9184A00F1C777 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +86,6 @@
 		F414F33D26C91BCC000511CA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F414F33E26C91BF0000511CA /* DemoController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -177,18 +170,8 @@
 		F435BFB526C9173600F1C777 /* AppViews */ = {
 			isa = PBXGroup;
 			children = (
-				F435BFB826C9183000F1C777 /* AppButton */,
 			);
 			path = AppViews;
-			sourceTree = "<group>";
-		};
-		F435BFB826C9183000F1C777 /* AppButton */ = {
-			isa = PBXGroup;
-			children = (
-				F435BFB626C9175F00F1C777 /* AppButton.xib */,
-				F435BFB926C9184A00F1C777 /* AppButton.swift */,
-			);
-			path = AppButton;
 			sourceTree = "<group>";
 		};
 		F4DFDE2126C90888008D71BC /* Networking */ = {
@@ -262,7 +245,6 @@
 				F416D74E26C900FB00BDD354 /* LaunchScreen.storyboard in Resources */,
 				F416D74B26C900FB00BDD354 /* Assets.xcassets in Resources */,
 				F416D74926C900FA00BDD354 /* Main.storyboard in Resources */,
-				F435BFB726C9175F00F1C777 /* AppButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,12 +300,10 @@
 				F416D74626C900FA00BDD354 /* ViewController.swift in Sources */,
 				F435BFA526C909EA00F1C777 /* WebError.swift in Sources */,
 				F435BF9F26C909EA00F1C777 /* Resource.swift in Sources */,
-				F414F33F26C91BF0000511CA /* DemoController.swift in Sources */,
 				F435BFA426C909EA00F1C777 /* ApiRepo.swift in Sources */,
 				F435BFAC26C90A0D00F1C777 /* Cache.swift in Sources */,
 				F435BFB426C90A2800F1C777 /* CustomError.swift in Sources */,
 				F435BFAE26C90A0D00F1C777 /* CacheItem.swift in Sources */,
-				F435BFBA26C9184A00F1C777 /* AppButton.swift in Sources */,
 				F435BFB326C90A2800F1C777 /* User.swift in Sources */,
 				F435BFA326C909EA00F1C777 /* Path.swift in Sources */,
 				F416D74226C900FA00BDD354 /* AppDelegate.swift in Sources */,
