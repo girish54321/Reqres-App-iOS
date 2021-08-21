@@ -30,3 +30,4 @@ struct Support :Decodable {
     let url: String
     let text: String
 }
+
