@@ -35,14 +35,8 @@ class LoginController: UIViewController {
                 if let data = response.value {
                     print(data.token)
                     AppToast().ShowToast(self: self!, message: data.token)
-                    guard let vc = self!.storyboard?.instantiateViewController(identifier: "WelcomeController") as? WelcomeController else {
-                        return
-                    }
-                    let navVC  = UINavigationController(rootViewController: vc)
-                    navVC.navigationBar.prefersLargeTitles = true
-                    navVC.modalPresentationStyle = .fullScreen
-                    self!.present(navVC, animated: true, completion: nil)
-                    
+                    let mainNavigationController = self!.storyboard?.instantiateViewController(withIdentifier: "MainNavigationController") as! MainNavigationController
+                    self!.present(mainNavigationController, animated: true, completion: nil)
                 } else if response.error != nil {
                     APIError().handleError(response.error!, self: self!)
                     

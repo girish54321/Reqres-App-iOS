@@ -14,6 +14,7 @@
 		F416D74926C900FA00BDD354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F416D74726C900FA00BDD354 /* Main.storyboard */; };
 		F416D74B26C900FB00BDD354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F416D74A26C900FB00BDD354 /* Assets.xcassets */; };
 		F416D74E26C900FB00BDD354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F416D74C26C900FB00BDD354 /* LaunchScreen.storyboard */; };
+		F41BE2D526D11B1B007995ED /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BE2D426D11B1B007995ED /* MainNavigationController.swift */; };
 		F42D1B8E26D0EFAD00B01019 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D1B8D26D0EFAD00B01019 /* APIError.swift */; };
 		F42D1B9126D0F1F400B01019 /* AppToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D1B9026D0F1F400B01019 /* AppToast.swift */; };
 		F42D1B9326D0FF4900B01019 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D1B9226D0FF4900B01019 /* CreateAccountController.swift */; };
@@ -48,6 +49,7 @@
 		F416D74A26C900FB00BDD354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F416D74D26C900FB00BDD354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F416D74F26C900FB00BDD354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F41BE2D426D11B1B007995ED /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		F42D1B8D26D0EFAD00B01019 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		F42D1B9026D0F1F400B01019 /* AppToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppToast.swift; sourceTree = "<group>"; };
 		F42D1B9226D0FF4900B01019 /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		F416D74026C900FA00BDD354 /* Reqres App */ = {
 			isa = PBXGroup;
 			children = (
+				F41BE2D426D11B1B007995ED /* MainNavigationController.swift */,
 				F42D1B8F26D0F1CB00B01019 /* AppToastMessage */,
 				F414F33D26C91BCC000511CA /* ViewControllers */,
 				F435BFB526C9173600F1C777 /* AppViews */,
@@ -355,6 +358,7 @@
 				F435BFA026C909EA00F1C777 /* Reachability.swift in Sources */,
 				F435BFA226C909EA00F1C777 /* Result.swift in Sources */,
 				F42D1B9526D1069400B01019 /* WelcomeController.swift in Sources */,
+				F41BE2D526D11B1B007995ED /* MainNavigationController.swift in Sources */,
 				F435BFAD26C90A0D00F1C777 /* CachedWebClient.swift in Sources */,
 				F466F45B26D0CF0B00E624DA /* LoginController.swift in Sources */,
 				F416D74426C900FA00BDD354 /* SceneDelegate.swift in Sources */,
