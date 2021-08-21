@@ -8,16 +8,6 @@
 
 import Foundation
 
-//struct User: Decodable {
-//    var id: String
-//    var email: String
-//    var name: String
-//}
-//
-//struct FriendsResponse: Decodable {
-//    var friends: [User]
-//}
-
 // MARK: - Users
 struct UserResponseRoot:Decodable{
     let page: Int

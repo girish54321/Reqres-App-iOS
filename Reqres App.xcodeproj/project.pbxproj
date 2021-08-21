@@ -26,6 +26,8 @@
 		F435BFAE26C90A0D00F1C777 /* CacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435BFAB26C90A0D00F1C777 /* CacheItem.swift */; };
 		F435BFB326C90A2800F1C777 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435BFB126C90A2800F1C777 /* User.swift */; };
 		F435BFB426C90A2800F1C777 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435BFB226C90A2800F1C777 /* CustomError.swift */; };
+		F466F45B26D0CF0B00E624DA /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466F45A26D0CF0B00E624DA /* LoginController.swift */; };
+		F466F45E26D0D5E400E624DA /* AuthAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466F45D26D0D5E400E624DA /* AuthAPIController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		F435BFAB26C90A0D00F1C777 /* CacheItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheItem.swift; sourceTree = "<group>"; };
 		F435BFB126C90A2800F1C777 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F435BFB226C90A2800F1C777 /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		F466F45A26D0CF0B00E624DA /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		F466F45D26D0D5E400E624DA /* AuthAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPIController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 		F414F33D26C91BCC000511CA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F466F45A26D0CF0B00E624DA /* LoginController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -174,9 +179,18 @@
 			path = AppViews;
 			sourceTree = "<group>";
 		};
+		F466F45C26D0D5C100E624DA /* APIControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F466F45D26D0D5E400E624DA /* AuthAPIController.swift */,
+			);
+			path = APIControllers;
+			sourceTree = "<group>";
+		};
 		F4DFDE2126C90888008D71BC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F466F45C26D0D5C100E624DA /* APIControllers */,
 				F435BFB026C90A1E00F1C777 /* Models */,
 				F435BF9726C909DC00F1C777 /* JSONRestClient */,
 			);
@@ -305,11 +319,13 @@
 				F435BFB426C90A2800F1C777 /* CustomError.swift in Sources */,
 				F435BFAE26C90A0D00F1C777 /* CacheItem.swift in Sources */,
 				F435BFB326C90A2800F1C777 /* User.swift in Sources */,
+				F466F45E26D0D5E400E624DA /* AuthAPIController.swift in Sources */,
 				F435BFA326C909EA00F1C777 /* Path.swift in Sources */,
 				F416D74226C900FA00BDD354 /* AppDelegate.swift in Sources */,
 				F435BFA026C909EA00F1C777 /* Reachability.swift in Sources */,
 				F435BFA226C909EA00F1C777 /* Result.swift in Sources */,
 				F435BFAD26C90A0D00F1C777 /* CachedWebClient.swift in Sources */,
+				F466F45B26D0CF0B00E624DA /* LoginController.swift in Sources */,
 				F416D74426C900FA00BDD354 /* SceneDelegate.swift in Sources */,
 				F435BFA126C909EA00F1C777 /* WebClient.swift in Sources */,
 			);
