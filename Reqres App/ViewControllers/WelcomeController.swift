@@ -7,32 +7,82 @@
 
 import UIKit
 
-class WelcomeController: UIViewController {
+class WelcomeController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title="welcome"
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var userList: UITableView!
+    var friendsTask: URLSessionDataTask!
+    var friends: [UserItem] = [] {
+        didSet {
+            updateUI()
+        }
     }
     
-
-    @IBAction func goToInfo(_ sender: Any) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "UserInfoController") as? UserInfoController else {
-            return
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Welcome"
+        userList.delegate = self
+        userList.dataSource = self
+//        userList.dataSource = self
+//        self.userList.delegate = self
+        loadFriends()
+    }
+    
+    private func updateUI() {
+        userList.reloadData()
+    }
+    
+     func loadFriends() {
+        friendsTask?.cancel()
+        
+        let exampleDict: [String: Any] = [
+                "per_page" : 20,         // type: String
+            ]
+        
+        let parmas = UserRepo().getUserRepo(params: exampleDict)
+        
+        friendsTask = ViewController.sharedWebClient.load(resource: parmas) {[weak self] response in
+            
+            guard let controller = self else { return }
+            
+            DispatchQueue.main.async {
+                if let friends = response.value?.data {
+                    controller.friends = friends
+                    controller.userList.reloadData()
+                    print("get have the data",friends[0].avatar)
+                } else if let error = response.error {
+                    print("errororo")
+                    self!.view.makeToast(error.localizedDescription)
+                }
+            }
         }
-        let navVC  = UINavigationController(rootViewController: vc)
-        navVC.navigationBar.prefersLargeTitles = true
-        navVC.modalPresentationStyle = .fullScreen
-        self.present(navVC, animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    func goToInfo(friend:UserItem) {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInfoController") as? UserInfoController {
+            viewController.info = friend
+               if let navigator = navigationController {
+                   navigator.pushViewController(viewController, animated: true)
+               }
+           }
+        }
+    
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return friends.count
+        }
+    
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! UserListItemCell
+            let friend = friends[indexPath.row]
+            cell.setUserItemData(item: friend)
+            return cell
+        }
+    
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let friend = friends[indexPath.row]
+            goToInfo(friend: friend)
+        }
 
 }
+
+
+

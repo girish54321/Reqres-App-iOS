@@ -8,12 +8,15 @@
 import Foundation
 struct AuthAPIController {
     func loginUser(params: JSON) -> Resource<LoginSuccessRoot, LoginErrorRoot> {
-//        let data = Resource<LoginSuccessRoot, LoginErrorRoot>(
-//            jsonDecoder: JSONDecoder(),
-//            path: "/register",
-//            method: RequestMethod.post,
-//            parse:parse)
-        
+        let data = Resource<LoginSuccessRoot, LoginErrorRoot>(
+            jsonDecoder: JSONDecoder(),
+            path: "/login",
+            method: RequestMethod.post,
+            params: params)
+        return data
+    }
+    
+    func CrateUser(params: JSON) -> Resource<LoginSuccessRoot, LoginErrorRoot> {
         let data = Resource<LoginSuccessRoot, LoginErrorRoot>(
             jsonDecoder: JSONDecoder(),
             path: "/register",

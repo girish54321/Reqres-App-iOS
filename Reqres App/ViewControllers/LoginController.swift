@@ -48,31 +48,11 @@ class LoginController: UIViewController {
     @IBAction func onLoginPress(_ sender: Any) {
         if(emailInput.text?.isEmpty ?? false && passwordInput.text?.isEmpty ?? false){
             AppToast().ShowToast(self: self, message: "Please fill all the details 1")
-            }else{
-               
+            } else {
                 let email : String = emailInput.text ?? ""
                 let password :String = passwordInput.text ?? ""
                 doLogin(email: email, passsword: password)
 
             }
     }
-//    @IBAction func onCreateNewAccount(_ sender: Any) {
-//        goToCreateAccount()
-//    }
-//    
-//    func goToCreateAccount() {
-////        present(CreateAccountController(), animated: true, completion: nil)
-////        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreateAccountController") as! CreateAccountController
-////           self.present(vc, animated: true, completion: nil)
-//        
-//        guard let vc = storyboard?.instantiateViewController(identifier: "CreateAccountController") as? CreateAccountController else {
-//            return
-//        }
-//        let navVC  = UINavigationController(rootViewController: vc)
-//        navVC.navigationBar.prefersLargeTitles = true
-//        navVC.modalPresentationStyle = .fullScreen
-//        navVC.navigationBar = UINavigationBar()
-////        navVC.modalPresentationStyle = .overFullScreen
-//        present(navVC, animated: true, completion: nil)
-//    }
 }
