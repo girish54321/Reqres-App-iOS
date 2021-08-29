@@ -48,9 +48,8 @@ class WelcomeController: UIViewController,UITableViewDelegate, UITableViewDataSo
                 if let friends = response.value?.data {
                     controller.friends = friends
                     controller.userList.reloadData()
-                    print("get have the data",friends[0].avatar)
                 } else if let error = response.error {
-                    print("errororo")
+                    print("we have error")
                     self!.view.makeToast(error.localizedDescription)
                 }
             }

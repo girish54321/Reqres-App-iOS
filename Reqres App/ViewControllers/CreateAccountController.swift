@@ -32,7 +32,6 @@ class CreateAccountController: UIViewController {
             
             DispatchQueue.main.async {
                 if let data = response.value {
-                    print(data.token)
                     AppToast().ShowToast(self: self!, message: data.token)
                     let mainNavigationController = self!.storyboard?.instantiateViewController(withIdentifier: "MainNavigationController") as! MainNavigationController
                     self!.present(mainNavigationController, animated: true, completion: nil)

@@ -88,8 +88,6 @@ open class WebClient {
                 completion(.failure(.other))
                 return
             }
-            print("response.statusCode")
-            print(response.statusCode)
             if (200..<300) ~= response.statusCode {
                 completion(Result(value: data.flatMap(resource.parse), or: .other))
             } else if response.statusCode == 401 {

@@ -18,6 +18,5 @@ class UserInfoController: UIViewController {
         userInfoImage.makeRounded()
         userInfoImage.sd_setImage(with: URL(string: info?.avatar ?? ""))
         title = info?.first_name
-        print(userId)
     }
 }
