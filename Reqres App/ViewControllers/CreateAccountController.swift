@@ -6,50 +6,46 @@
 //
 
 import UIKit
+import Alamofire
 
 class CreateAccountController: UIViewController {
 
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     
-    var apiTask: URLSessionDataTask!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
-    //Do Login
-    func createAccount(email :String,passsword :String) {
-        apiTask?.cancel()
+  
+    @IBAction func createAccount(_ sender: Any) {
+        if(emailInput.text?.isEmpty ?? false && passwordInput.text?.isEmpty ?? false) {
+            AppToast().ShowToast(self: self, message: "Please fill all the details 1")
+            } else {
+                let email : String = emailInput.text ?? ""
+                let password :String = passwordInput.text ?? ""
+                UserCreateAccountApi(email: email, password: password)
+            }
+    }
+}
+
+
+extension CreateAccountController {
+    func UserCreateAccountApi(email : String,password : String) {
         let postdata: [String: Any] = [
                 "email" : "eve.holt@reqres.in",
                 "password":"cityslicka"
         ]
-        let parmas = AuthAPIController().CrateUser(params: postdata)
-        
-        apiTask = ViewController.sharedWebClient.load(resource: parmas) {[weak self] response in
-            
-            DispatchQueue.main.async {
-                if let data = response.value {
-                    AppToast().ShowToast(self: self!, message: data.token)
-                    let mainNavigationController = self!.storyboard?.instantiateViewController(withIdentifier: "MainNavigationController") as! MainNavigationController
-                    self!.present(mainNavigationController, animated: true, completion: nil)
-                } else if response.error != nil {
-                    APIError().handleError(response.error!, self: self!)
-                    
-                }
+        AF.request("https://reqres.in/api/register",method: .post,parameters: postdata).validate().responseDecodable(of: RegisterResponse.self) { (response) in
+            print(response)
+            guard let data = response.value else {
+                print(response)
+                print("Error")
+                return
             }
+            AppToast().ShowToast(self: self, message: data.token!)
+            let mainNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "MainNavigationController") as! MainNavigationController
+            self.present(mainNavigationController, animated: true, completion: nil)
         }
-    }
-    
-    @IBAction func createAccount(_ sender: Any) {
-        if(emailInput.text?.isEmpty ?? false && passwordInput.text?.isEmpty ?? false){
-            AppToast().ShowToast(self: self, message: "Please fill all the details 1")
-            }else{
-                let email : String = emailInput.text ?? ""
-                let password :String = passwordInput.text ?? ""
-                createAccount(email: email, passsword: password)
-            }
     }
 }

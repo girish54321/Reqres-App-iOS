@@ -1,22 +1,26 @@
 PODS:
-  - SDWebImage (5.11.1):
-    - SDWebImage/Core (= 5.11.1)
-  - SDWebImage/Core (5.11.1)
+  - Alamofire (5.4.4)
+  - SDWebImage (5.12.1):
+    - SDWebImage/Core (= 5.12.1)
+  - SDWebImage/Core (5.12.1)
   - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
+  - Alamofire
   - SDWebImage
   - Toast-Swift (~> 5.0.1)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - SDWebImage
     - Toast-Swift
 
 SPEC CHECKSUMS:
-  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: af76b383a454a2a38f6b2c8abb38dc3de8c3f1b0
+PODFILE CHECKSUM: 0f6f6f73ba87a251bfddecc66245a8dc9d90ff7d
 
 COCOAPODS: 1.10.2

@@ -6,53 +6,45 @@
 //
 
 import UIKit
-import Toast_Swift
+import Alamofire
 
 class LoginController: UIViewController {
-    static let sharedWebClient = WebClient.init(baseUrl: "https://reqres.in/api")
     
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
-    
-    var apiTask: URLSessionDataTask!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    //Do Login
-    func doLogin(email :String,passsword :String) {
-        apiTask?.cancel()
+    @IBAction func onLoginPress(_ sender: Any) {
+        if(emailInput.text?.isEmpty ?? false && passwordInput.text?.isEmpty ?? false){
+            AppToast().ShowToast(self: self, message: "Please fill all the details")
+            } else {
+                let email : String = emailInput.text ?? ""
+                let password :String = passwordInput.text ?? ""
+                UserLoginApi(email: email, password: password)
+            }
+    }
+}
+
+// MARK: - Alamofire API CAll
+extension LoginController {
+    func UserLoginApi(email : String,password : String) {
         let postdata: [String: Any] = [
                 "email" : "eve.holt@reqres.in",
                 "password":"cityslicka"
         ]
-        let parmas = AuthAPIController().loginUser(params: postdata)
-        
-        apiTask = ViewController.sharedWebClient.load(resource: parmas) {[weak self] response in
-            
-            DispatchQueue.main.async {
-                if let data = response.value {
-                    print(data.token)
-                    AppToast().ShowToast(self: self!, message: data.token)
-                    let mainNavigationController = self!.storyboard?.instantiateViewController(withIdentifier: "MainNavigationController") as! MainNavigationController
-                    self!.present(mainNavigationController, animated: true, completion: nil)
-                } else if response.error != nil {
-                    APIError().handleError(response.error!, self: self!)
-                    
-                }
+        AF.request("https://reqres.in/api/login",method: .post,parameters: postdata).validate().responseDecodable(of: LoginResponse.self) { (response) in
+            print(response)
+            guard let data = response.value else {
+                print(response)
+                print("Error")
+                return
             }
+            AppToast().ShowToast(self: self, message: data.token!)
+            let mainNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "MainNavigationController") as! MainNavigationController
+            self.present(mainNavigationController, animated: true, completion: nil)
         }
-    }
-    
-    @IBAction func onLoginPress(_ sender: Any) {
-        if(emailInput.text?.isEmpty ?? false && passwordInput.text?.isEmpty ?? false){
-            AppToast().ShowToast(self: self, message: "Please fill all the details 1")
-            } else {
-                let email : String = emailInput.text ?? ""
-                let password :String = passwordInput.text ?? ""
-                doLogin(email: email, passsword: password)
-
-            }
     }
 }
