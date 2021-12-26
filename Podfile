@@ -8,5 +8,4 @@ target 'Reqres App' do
   pod 'Toast-Swift', '~> 5.0.1'
   pod 'Alamofire'
   # Pods for Reqres App
-
 end

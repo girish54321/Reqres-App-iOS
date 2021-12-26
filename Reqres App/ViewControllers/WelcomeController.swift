@@ -24,10 +24,9 @@ class WelcomeController: UIViewController {
     func goToInfo(item:UserListResponseData) {
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInfoController") as? UserInfoController {
             viewController.userListItem = item
-               if let navigator = navigationController {
-                   navigator.pushViewController(viewController, animated: true)
-               }
-           
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
         }
     }
 }
