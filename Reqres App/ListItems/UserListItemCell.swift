@@ -24,10 +24,10 @@ class UserListItemCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUserItemData(item : UserItem) {
+    func setUserItemData(item : UserListResponseData) {
         userNameItem.text = item.first_name
         userEmailItem.text = item.email
-        userImageItem.sd_setImage(with: URL(string: item.avatar))
+        userImageItem.sd_setImage(with: URL(string: item.avatar!))
     }
 
 }

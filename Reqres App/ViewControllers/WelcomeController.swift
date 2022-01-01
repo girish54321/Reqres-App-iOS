@@ -6,82 +6,80 @@
 //
 
 import UIKit
+import Alamofire
 
-class WelcomeController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class WelcomeController: UIViewController {
 
     @IBOutlet weak var userList: UITableView!
-    var friendsTask: URLSessionDataTask!
-    var friends: [UserItem] = [] {
-        didSet {
-            updateUI()
-        }
-    }
+    var userListData : UserListResponse!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Welcome"
-        userList.delegate = self
         userList.dataSource = self
-//        userList.dataSource = self
-//        self.userList.delegate = self
-        loadFriends()
+        userList.delegate = self
+        getUserList()
     }
     
-    private func updateUI() {
-        userList.reloadData()
+    
+    @IBAction func onLogOut(_ sender: Any) {
+        let alert = UIAlertController(title: "Logout?", message: "Are you sure?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler:nil ))
+        alert.addAction(UIAlertAction(title: "Okay",style: .default,handler: logOutUser))
+        DispatchQueue.main.async { self.present(alert, animated: true) }
     }
     
-     func loadFriends() {
-        friendsTask?.cancel()
-        
-        let exampleDict: [String: Any] = [
-                "per_page" : 20,         // type: String
-            ]
-        
-        let parmas = UserRepo().getUserRepo(params: exampleDict)
-        
-        friendsTask = ViewController.sharedWebClient.load(resource: parmas) {[weak self] response in
-            
-            guard let controller = self else { return }
-            
-            DispatchQueue.main.async {
-                if let friends = response.value?.data {
-                    controller.friends = friends
-                    controller.userList.reloadData()
-                } else if let error = response.error {
-                    print("we have error")
-                    self!.view.makeToast(error.localizedDescription)
-                }
+    func logOutUser(alert: UIAlertAction!)  {
+        let mainNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "AuthNavigationController") as! AuthNavigationController
+        self.present(mainNavigationController, animated: true, completion: nil)
+    }
+    
+    func goToInfo(item:UserListResponseData) {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInfoController") as? UserInfoController {
+            viewController.userListItem = item
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
             }
         }
     }
-
-    func goToInfo(friend:UserItem) {
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInfoController") as? UserInfoController {
-            viewController.info = friend
-               if let navigator = navigationController {
-                   navigator.pushViewController(viewController, animated: true)
-               }
-           }
-        }
-    
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return friends.count
-        }
-    
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! UserListItemCell
-            let friend = friends[indexPath.row]
-            cell.setUserItemData(item: friend)
-            return cell
-        }
-    
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let friend = friends[indexPath.row]
-            goToInfo(friend: friend)
-        }
-
 }
 
+extension WelcomeController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userListData?.data?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = userList.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! UserListItemCell
+        let item = userListData.data?[indexPath.row] ?? nil
+        cell.setUserItemData(item: item!)
+        return cell
+    }
+}
+
+extension WelcomeController: UITableViewDelegate {
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let item = userListData?.data?[indexPath.row]
+            self.goToInfo(item: item!)
+        }
+}
+
+extension WelcomeController {
+    func getUserList() {
+        let parameters: [String: Any] = [
+            "page":"1",
+            "per_page":"55"
+        ]
+        AF.request(AppConst.baseurl+AppConst.usersListUrl,method: .get,parameters: parameters).validate().responseDecodable(of: UserListResponse.self) { [self] (response) in
+            guard let data = response.value else {
+                print(response)
+                print("Error")
+                return
+            }
+            self.userListData = data
+            self.userList.reloadData()
+        }
+    }
+}
 
 

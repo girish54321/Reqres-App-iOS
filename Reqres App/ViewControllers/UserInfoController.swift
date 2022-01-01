@@ -10,13 +10,14 @@ import UIKit
 class UserInfoController: UIViewController {
 
     var userId : String = "";
-    var info : UserItem? = nil
     @IBOutlet weak var userInfoImage: UIImageView!
+    var userListItem: UserListResponseData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         userInfoImage.makeRounded()
-        userInfoImage.sd_setImage(with: URL(string: info?.avatar ?? ""))
-        title = info?.first_name
+        userInfoImage.sd_setImage(with: URL(string: userListItem?.avatar ?? ""))
+        title = userListItem?.first_name
+        
     }
 }
