@@ -20,7 +20,20 @@ class WelcomeController: UIViewController {
         userList.delegate = self
         getUserList()
     }
- 
+    
+    
+    @IBAction func onLogOut(_ sender: Any) {
+        let alert = UIAlertController(title: "Logout?", message: "Are you sure?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler:nil ))
+        alert.addAction(UIAlertAction(title: "Okay",style: .default,handler: logOutUser))
+        DispatchQueue.main.async { self.present(alert, animated: true) }
+    }
+    
+    func logOutUser(alert: UIAlertAction!)  {
+        let mainNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "AuthNavigationController") as! AuthNavigationController
+        self.present(mainNavigationController, animated: true, completion: nil)
+    }
+    
     func goToInfo(item:UserListResponseData) {
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInfoController") as? UserInfoController {
             viewController.userListItem = item
