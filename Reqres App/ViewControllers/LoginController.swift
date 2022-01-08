@@ -35,13 +35,17 @@ extension LoginController {
                 "email" : "eve.holt@reqres.in",
                 "password":"cityslicka"
         ]
-        AF.request("https://reqres.in/api/login",method: .post,parameters: postdata).validate().responseDecodable(of: LoginResponse.self) { (response) in
+        AF.request("https://reqres.in/api/login",method: .post,parameters: postdata).validate().responseJSON { response in
             print(response)
-            guard let data = response.value else {
-                print(response)
-                print("Error")
+//            guard let data = response.value else {
+//                print(response)
+//                print("Error")
+//                return
+//            }
+            guard let data = try? JSONDecoder().decode(LoginResponse.self, from: response.data! ) else {
+                print("Error: Couldn't decode data into car")
                 return
-            }
+              }
             AppToast().ShowToast(self: self, message: data.token!)
             let mainNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "MainNavigationController") as! MainNavigationController
             self.present(mainNavigationController, animated: true, completion: nil)

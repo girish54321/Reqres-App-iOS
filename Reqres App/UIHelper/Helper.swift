@@ -20,3 +20,18 @@ extension String {
         self = self + str
     }
 }
+
+extension UIBarButtonItem {
+    convenience init(image :UIImage, title :String, target: Any?, action: Selector?) {
+        let button = UIButton(type: .custom)
+        button.setImage(image, for: .normal)
+        button.setTitle(title, for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+
+        if let target = target, let action = action {
+            button.addTarget(target, action: action, for: .touchUpInside)
+        }
+
+        self.init(customView: button)
+    }
+}

@@ -41,6 +41,21 @@ class WelcomeController: UIViewController {
                 navigator.pushViewController(viewController, animated: true)
             }
         }
+        
+//        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInfoController") as? UserInfoController {
+//            viewController.userListItem = item
+//            let mybtn = UIBarButtonItem(
+//                title:"Back",
+//                style: .done,
+//                target: self,
+//                action: #selector(goBack))
+//            viewController.navigationItem.leftBarButtonItem = mybtn
+//            let navController = UINavigationController(rootViewController: viewController)
+//            self.present(navController, animated:true, completion: nil)
+//            }
+    }
+    @objc func goBack(){
+        dismiss(animated: true, completion: nil)
     }
 }
 

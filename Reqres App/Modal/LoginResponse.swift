@@ -12,17 +12,29 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct LoginResponse : Codable {
-	let token : String?
+//struct LoginResponse : Codable {
+//	let token : String?
+//
+//	enum CodingKeys: String, CodingKey {
+//
+//		case token = "token"
+//	}
+//
+//	init(from decoder: Decoder) throws {
+//		let values = try decoder.container(keyedBy: CodingKeys.self)
+//		token = try values.decodeIfPresent(String.self, forKey: .token)
+//	}
+//
+//}
 
-	enum CodingKeys: String, CodingKey {
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let topicImageResponse = try? newJSONDecoder().decode(TopicImageResponse.self, from: jsonData)
 
-		case token = "token"
-	}
+import Foundation
 
-	init(from decoder: Decoder) throws {
-		let values = try decoder.container(keyedBy: CodingKeys.self)
-		token = try values.decodeIfPresent(String.self, forKey: .token)
-	}
-
+// MARK: - TopicImageResponse
+struct LoginResponse : Decodable{
+    var token: String?
 }
