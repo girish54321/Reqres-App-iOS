@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cwf-UL-bnt">
-                                <rect key="frame" x="20" y="293" width="374" height="50"/>
+                                <rect key="frame" x="20" y="293" width="386.5" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="vKl-rN-F0S"/>
                                 </constraints>
@@ -26,7 +27,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="jcV-rR-F1E">
-                                <rect key="frame" x="20" y="369" width="374" height="50"/>
+                                <rect key="frame" x="20" y="369" width="386.5" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FNT-L4-JpL"/>
                                 </constraints>
@@ -34,19 +35,20 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysW-lt-wVE">
-                                <rect key="frame" x="20" y="183" width="374" height="32"/>
+                                <rect key="frame" x="20" y="183" width="386.5" height="32"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <color key="textColor" systemColor="linkColor"/>
+                                <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBT-Rl-WUO">
-                                <rect key="frame" x="136" y="453" width="129.5" height="47"/>
+                                <rect key="frame" x="136" y="453" width="142" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="Haw-d5-gQz"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="129.5" id="bGL-ED-TS6"/>
                                     <constraint firstAttribute="width" constant="129.5" id="f1g-vV-Yhi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="CREATE ACCOUNT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -86,7 +88,7 @@
             </objects>
             <point key="canvasLocation" x="-272" y="-74"/>
         </scene>
-        <!--Title-->
+        <!--Main App-->
         <scene sceneID="Mof-2F-BgS">
             <objects>
                 <viewController storyboardIdentifier="WelcomeController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UdD-IU-2oi" customClass="WelcomeController" customModule="Reqres_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,8 +160,9 @@
                             <constraint firstItem="JIB-VQ-lQF" firstAttribute="top" secondItem="yHI-P2-Pso" secondAttribute="top" id="bd3-DT-MEh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="GaA-Rq-Scs">
+                    <navigationItem key="navigationItem" title="Main App" id="GaA-Rq-Scs">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="bSM-Hg-RAv">
+                            <color key="tintColor" name="AccentColor"/>
                             <connections>
                                 <action selector="onLogOut:" destination="UdD-IU-2oi" id="jdO-8i-CNT"/>
                             </connections>
@@ -262,6 +265,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lkw-Rq-QNu">
                                 <rect key="frame" x="91" y="820.5" width="233" height="41.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Sign Up"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
@@ -273,7 +277,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNM-Mq-j8G">
                                 <rect key="frame" x="140" y="187" width="134" height="32"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <color key="textColor" systemColor="linkColor"/>
+                                <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="giO-E8-p8h">
@@ -300,6 +304,7 @@
                                     <constraint firstAttribute="height" constant="47" id="6tZ-yk-2eS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="LOGIN">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -383,13 +388,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mXy-YM-hge"/>
+        <segue reference="U5Y-YV-kta"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="placeholder" width="1280" height="960"/>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="AccentColor">
+            <color red="0.054901960784313725" green="0.5607843137254902" blue="0.039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
