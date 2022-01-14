@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 class WelcomeController: UIViewController {
-
+    
     @IBOutlet weak var userList: UITableView!
     var userListData : UserListResponse!
     
@@ -30,8 +30,9 @@ class WelcomeController: UIViewController {
     }
     
     func logOutUser(alert: UIAlertAction!)  {
-        let mainNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "AuthNavigationController") as! AuthNavigationController
-        self.present(mainNavigationController, animated: true, completion: nil)
+        let isUserLogedIn = false
+        UserFlow.saveLoginedInUser(isUserLogedIn: isUserLogedIn)
+        performSegue(withIdentifier: "MainAppToAuthVC", sender: nil)
     }
     
     func goToInfo(item:UserListResponseData) {
@@ -41,6 +42,9 @@ class WelcomeController: UIViewController {
                 navigator.pushViewController(viewController, animated: true)
             }
         }
+    }
+    @objc func goBack(){
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -58,10 +62,10 @@ extension WelcomeController: UITableViewDataSource {
 }
 
 extension WelcomeController: UITableViewDelegate {
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let item = userListData?.data?[indexPath.row]
-            self.goToInfo(item: item!)
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = userListData?.data?[indexPath.row]
+        self.goToInfo(item: item!)
+    }
 }
 
 extension WelcomeController {

@@ -7,10 +7,9 @@
 
 import Foundation
 import Toast_Swift
+
 struct AppToast {
-    
     func ShowToast(self:UIViewController,message:String) {
         self.view.makeToast(message)
     }
-    
 }
