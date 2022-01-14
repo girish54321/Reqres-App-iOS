@@ -46,3 +46,23 @@ struct UserFlow {
         saveUserInMobile(isUserLogedIn: isUserLogedIn)
     }
 }
+
+struct ApiError {
+    
+    private static func CheckApiError(response: HTTPURLResponse?,data: Data?,self:UIViewController) -> Bool{
+        if response?.statusCode == 200 {
+            return true;
+        } else {
+            guard let errorData = try? JSONDecoder().decode(LoginResponseError.self, from: data! ) else {
+                print("Error: Couldn't decode data into LoginResponseError")
+                return false
+            }
+            AppToast().ShowToast(self: self, message: errorData.error ?? "Error")
+            return false
+        }
+    }
+    
+    static func checkApiError(response: HTTPURLResponse?,data: Data?,self:UIViewController) -> Bool{
+        return CheckApiError(response: response, data: data, self: self)
+    }
+}

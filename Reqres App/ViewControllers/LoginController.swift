@@ -36,15 +36,17 @@ extension LoginController {
             "password":"cityslicka"
         ]
         AF.request("https://reqres.in/api/login",method: .post,parameters: postdata).validate().responseJSON { response in
-            print(response)
-            guard let data = try? JSONDecoder().decode(LoginResponse.self, from: response.data! ) else {
-                print("Error: Couldn't decode data into car")
-                return
+            
+            if ApiError.checkApiError(response: response.response!, data: response.data ?? nil, self: self) == true {
+                guard let data = try? JSONDecoder().decode(LoginResponse.self, from: response.data! ) else {
+                    print("Error: Couldn't decode data into LoginResponse")
+                    return
+                }
+                AppToast().ShowToast(self: self, message: data.token!)
+                let isUserLogedIn = true
+                UserFlow.saveLoginedInUser(isUserLogedIn: isUserLogedIn)
+                self.performSegue(withIdentifier: "toMainAppVC", sender: nil)
             }
-            AppToast().ShowToast(self: self, message: data.token!)
-            let isUserLogedIn = true
-            UserFlow.saveLoginedInUser(isUserLogedIn: isUserLogedIn)
-            self.performSegue(withIdentifier: "toMainAppVC", sender: nil)
         }
     }
 }
