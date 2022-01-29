@@ -1,6 +1,8 @@
 # Reqres-App
 
+<img width="1604"  src="app_image/banner.png?raw=true">
+
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="1604"  src="https://github.com/girish54321/Reqres-App/blob/main/app_image/tinified/1.png">  Login Screen |  <img width="1604" src="https://github.com/girish54321/Reqres-App/blob/main/app_image/tinified/2.png"> Create Account Screen |<img width="1604" src="https://github.com/girish54321/Reqres-App/blob/main/app_image/tinified/3.png"> Home Screen |
-|<img width="1604" src="https://github.com/girish54321/Reqres-App/blob/main/app_image/tinified/4.png"> 
+|<img width="1604"  src="app_image/login.png">  Login Screen |  <img width="1604" src="app_image/welcome.png"> Welcome Screen |<img width="1604" src="app_image/userinfo.png"> Userinfo Screen |  <img width="1604" src="app_image/logout.png"> Logout Screen |
+| <img width="1604" src="app_image/logout.png"> Logout Screen 

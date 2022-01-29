@@ -20,7 +20,7 @@ class CreateAccountController: UIViewController {
     
     @IBAction func createAccount(_ sender: Any) {
         if(emailInput.text?.isEmpty ?? false && passwordInput.text?.isEmpty ?? false) {
-            AppToast().ShowToast(self: self, message: "Please fill all the details 1")
+            AppToast().ShowToast(self: self, message: "Please fill all the details")
         } else {
             let email : String = emailInput.text ?? ""
             let password :String = passwordInput.text ?? ""
@@ -37,16 +37,18 @@ extension CreateAccountController {
             "password":"cityslicka"
         ]
         AF.request("https://reqres.in/api/register",method: .post,parameters: postdata).validate().responseDecodable(of: RegisterResponse.self) { (response) in
-            print(response)
-            guard let data = response.value else {
-                print(response)
-                print("Error")
-                return
+            
+            if ApiError.checkApiError(response: response.response!, data: response.data ?? nil, self: self) == true {
+                guard let data = response.value else {
+                    print(response)
+                    print("Error")
+                    return
+                }
+                AppToast().ShowToast(self: self, message: data.token!)
+                let isUserLogedIn = true
+                UserFlow.saveLoginedInUser(isUserLogedIn: isUserLogedIn)
+                self.performSegue(withIdentifier: "SignUpToMainApp", sender: nil)
             }
-            AppToast().ShowToast(self: self, message: data.token!)
-            let isUserLogedIn = true
-            UserFlow.saveLoginedInUser(isUserLogedIn: isUserLogedIn)
-            self.performSegue(withIdentifier: "SignUpToMainApp", sender: nil)
         }
     }
 }

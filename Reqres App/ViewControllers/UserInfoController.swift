@@ -15,9 +15,10 @@ class UserInfoController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userListItem =  SelectedUserSingleton.selectedUserInfo.userData
         userInfoImage.makeRounded()
         userInfoImage.sd_setImage(with: URL(string: userListItem?.avatar ?? ""))
         title = userListItem?.first_name
-        
     }
 }

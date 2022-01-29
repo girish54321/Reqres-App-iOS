@@ -24,8 +24,8 @@ class WelcomeController: UIViewController {
     
     @IBAction func onLogOut(_ sender: Any) {
         let alert = UIAlertController(title: "Logout?", message: "Are you sure?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler:nil ))
-        alert.addAction(UIAlertAction(title: "Okay",style: .default,handler: logOutUser))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil ))
+        alert.addAction(UIAlertAction(title: "Okay",style: .destructive,handler: logOutUser))
         DispatchQueue.main.async { self.present(alert, animated: true) }
     }
     
@@ -36,15 +36,14 @@ class WelcomeController: UIViewController {
     }
     
     func goToInfo(item:UserListResponseData) {
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInfoController") as? UserInfoController {
-            viewController.userListItem = item
-            if let navigator = navigationController {
-                navigator.pushViewController(viewController, animated: true)
-            }
-        }
+        SelectedUserSingleton.selectedUserInfo.userData = item
+        performSegue(withIdentifier: "goTod", sender: nil)
     }
     @objc func goBack(){
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
 }
 

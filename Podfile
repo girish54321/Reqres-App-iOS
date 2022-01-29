@@ -7,5 +7,6 @@ target 'Reqres App' do
   pod 'SDWebImage'
   pod 'Toast-Swift', '~> 5.0.1'
   pod 'Alamofire'
+  pod 'SwiftAlertView', '~> 2.2.1'
   # Pods for Reqres App
 end
