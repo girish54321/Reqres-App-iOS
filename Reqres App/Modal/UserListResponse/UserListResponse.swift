@@ -17,7 +17,7 @@ struct UserListResponse : Codable {
 	let per_page : Int?
 	let total : Int?
 	let total_pages : Int?
-	let data : [UserListResponseData]?
+    var data : [UserListResponseData]?
 	let support : Support?
 
 	enum CodingKeys: String, CodingKey {
