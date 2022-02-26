@@ -13,7 +13,6 @@
 		F416D74926C900FA00BDD354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F416D74726C900FA00BDD354 /* Main.storyboard */; };
 		F416D74B26C900FB00BDD354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F416D74A26C900FB00BDD354 /* Assets.xcassets */; };
 		F416D74E26C900FB00BDD354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F416D74C26C900FB00BDD354 /* LaunchScreen.storyboard */; };
-		F41BE2D526D11B1B007995ED /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BE2D426D11B1B007995ED /* MainNavigationController.swift */; };
 		F42A2E5A27AE729300064052 /* WelcomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A2E5927AE729300064052 /* WelcomeTableViewController.swift */; };
 		F42D1B9126D0F1F400B01019 /* AppToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D1B9026D0F1F400B01019 /* AppToast.swift */; };
 		F42D1B9326D0FF4900B01019 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D1B9226D0FF4900B01019 /* CreateAccountController.swift */; };
@@ -21,7 +20,6 @@
 		F438BE7E26D14E77001F76F1 /* UserListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438BE7D26D14E77001F76F1 /* UserListItemCell.swift */; };
 		F438BE8426D14F31001F76F1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438BE8326D14F31001F76F1 /* Helper.swift */; };
 		F466F45B26D0CF0B00E624DA /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466F45A26D0CF0B00E624DA /* LoginController.swift */; };
-		F46A3A0C2780635C002B4E63 /* AuthNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A3A0B2780635C002B4E63 /* AuthNavigationController.swift */; };
 		F46A3A0E278068CF002B4E63 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A3A0D278068CF002B4E63 /* Alert.swift */; };
 		F46B4C14279C17CA003E0D0D /* SelectedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B4C13279C17CA003E0D0D /* SelectedUser.swift */; };
 		F4D3E58A276F65DB0083D1D1 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3E589276F65DB0083D1D1 /* RegisterResponse.swift */; };
@@ -42,7 +40,6 @@
 		F416D74A26C900FB00BDD354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F416D74D26C900FB00BDD354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F416D74F26C900FB00BDD354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F41BE2D426D11B1B007995ED /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		F42A2E5927AE729300064052 /* WelcomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTableViewController.swift; sourceTree = "<group>"; };
 		F42D1B9026D0F1F400B01019 /* AppToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppToast.swift; sourceTree = "<group>"; };
 		F42D1B9226D0FF4900B01019 /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
@@ -50,7 +47,6 @@
 		F438BE7D26D14E77001F76F1 /* UserListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListItemCell.swift; sourceTree = "<group>"; };
 		F438BE8326D14F31001F76F1 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F466F45A26D0CF0B00E624DA /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		F46A3A0B2780635C002B4E63 /* AuthNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationController.swift; sourceTree = "<group>"; };
 		F46A3A0D278068CF002B4E63 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		F46B4C13279C17CA003E0D0D /* SelectedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedUser.swift; sourceTree = "<group>"; };
 		F4D3E589276F65DB0083D1D1 /* RegisterResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
@@ -158,9 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				F46A3A0D278068CF002B4E63 /* Alert.swift */,
-				F46A3A0B2780635C002B4E63 /* AuthNavigationController.swift */,
 				F438BE8326D14F31001F76F1 /* Helper.swift */,
-				F41BE2D426D11B1B007995ED /* MainNavigationController.swift */,
 			);
 			path = UIHelper;
 			sourceTree = "<group>";
@@ -305,7 +299,6 @@
 				F42A2E5A27AE729300064052 /* WelcomeTableViewController.swift in Sources */,
 				F42D1B9126D0F1F400B01019 /* AppToast.swift in Sources */,
 				F4D3E58A276F65DB0083D1D1 /* RegisterResponse.swift in Sources */,
-				F46A3A0C2780635C002B4E63 /* AuthNavigationController.swift in Sources */,
 				F42D1B9726D1083000B01019 /* UserInfoController.swift in Sources */,
 				F46A3A0E278068CF002B4E63 /* Alert.swift in Sources */,
 				F42D1B9326D0FF4900B01019 /* CreateAccountController.swift in Sources */,
@@ -313,7 +306,6 @@
 				F4D3E58C276F78050083D1D1 /* LoginResponse.swift in Sources */,
 				F4DABE1C27771BF8004CBC2C /* Support.swift in Sources */,
 				F4DABE1D27771BF8004CBC2C /* UserListResponse.swift in Sources */,
-				F41BE2D526D11B1B007995ED /* MainNavigationController.swift in Sources */,
 				F466F45B26D0CF0B00E624DA /* LoginController.swift in Sources */,
 				F438BE7E26D14E77001F76F1 /* UserListItemCell.swift in Sources */,
 				F4DABE2027771C7F004CBC2C /* AppConst.swift in Sources */,
