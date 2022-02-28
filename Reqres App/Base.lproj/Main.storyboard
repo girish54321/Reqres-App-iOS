@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cwf-UL-bnt">
-                                <rect key="frame" x="20" y="293" width="386.5" height="50"/>
+                                <rect key="frame" x="20" y="293" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="vKl-rN-F0S"/>
                                 </constraints>
@@ -27,7 +27,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="jcV-rR-F1E">
-                                <rect key="frame" x="20" y="369" width="386.5" height="50"/>
+                                <rect key="frame" x="20" y="369" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FNT-L4-JpL"/>
                                 </constraints>
@@ -35,13 +35,13 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysW-lt-wVE">
-                                <rect key="frame" x="20" y="183" width="386.5" height="32"/>
+                                <rect key="frame" x="20" y="183" width="374" height="32"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBT-Rl-WUO">
-                                <rect key="frame" x="136" y="453" width="142" height="47"/>
+                                <rect key="frame" x="136" y="453" width="129.5" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="Haw-d5-gQz"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="129.5" id="bGL-ED-TS6"/>
@@ -241,6 +241,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Welcome" id="hmG-oj-JGB">
                         <barButtonItem key="rightBarButtonItem" title="LogOut" id="PU3-Dj-oNO">
+                            <color key="tintColor" name="AccentColor"/>
                             <connections>
                                 <action selector="logOutTaped:" destination="osF-sC-YKr" id="6gr-Lx-lpW"/>
                             </connections>

@@ -36,7 +36,7 @@ extension LoginController {
             "email" : "eve.holt@reqres.in",
             "password":"cityslicka"
         ]
-        AF.request("https://reqres.in/api/login",method: .post,parameters: postdata).validate().responseJSON { response in
+        AF.request("\(AppConst.baseurl)login",method: .post,parameters: postdata).validate().responseJSON { response in
             
             if ApiError.checkApiError(response: response.response!, data: response.data ?? nil, self: self) == true {
                 guard let data = try? JSONDecoder().decode(LoginResponse.self, from: response.data! ) else {

@@ -12,7 +12,7 @@ class WelcomeTableViewController: UITableViewController, UISearchResultsUpdating
 
     var userListData : UserListResponse!
     var orignalUserList : UserListResponse!
-    //For Search
+    // For Search
     var resultSearchController = UISearchBar()
     let searchController = UISearchController()
     var searchText : String = ""
@@ -51,10 +51,7 @@ class WelcomeTableViewController: UITableViewController, UISearchResultsUpdating
         searchController.searchResultsUpdater = self;
         resultSearchController.delegate = self
         resultSearchController.showsScopeBar = true
-        
-        // Fix On Search clieck
         searchController.searchBar.delegate = self
-        
         searchController.automaticallyShowsSearchResultsController = false
         searchController.showsSearchResultsController = false
         searchController.delegate = self
@@ -65,8 +62,7 @@ class WelcomeTableViewController: UITableViewController, UISearchResultsUpdating
     
     //On Search Enter
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-     
-        print("Search API")
+        print("Do Search API Here!")
     }
     //On remove search View
     func didDismissSearchController(_ searchController: UISearchController) {
@@ -75,6 +71,7 @@ class WelcomeTableViewController: UITableViewController, UISearchResultsUpdating
     }
     
     @IBAction func logOutTaped(_ sender: Any) {
+        // Delete Local Storage
         deleteUser()
     }
     
@@ -92,6 +89,7 @@ class WelcomeTableViewController: UITableViewController, UISearchResultsUpdating
     }
     
     func goToInfo(item:UserListResponseData) {
+        // Save UserObj in Class
         SelectedUserSingleton.selectedUserInfo.userData = item
         performSegue(withIdentifier: "goToUserInfo", sender: nil)
     }

@@ -17,7 +17,6 @@ class CreateAccountController: UIViewController {
         super.viewDidLoad()
     }
     
-    
     @IBAction func createAccount(_ sender: Any) {
         if(emailInput.text?.isEmpty ?? false && passwordInput.text?.isEmpty ?? false) {
             AppToast().ShowToast(self: self, message: "Please fill all the details")
@@ -36,7 +35,7 @@ extension CreateAccountController {
             "email" : "eve.holt@reqres.in",
             "password":"cityslicka"
         ]
-        AF.request("https://reqres.in/api/register",method: .post,parameters: postdata).validate().responseDecodable(of: RegisterResponse.self) { (response) in
+        AF.request("\(AppConst.baseurl)register",method: .post,parameters: postdata).validate().responseDecodable(of: RegisterResponse.self) { (response) in
             
             if ApiError.checkApiError(response: response.response!, data: response.data ?? nil, self: self) == true {
                 guard let data = response.value else {
