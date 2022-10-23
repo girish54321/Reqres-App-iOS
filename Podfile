@@ -6,7 +6,7 @@ target 'Reqres App' do
   use_frameworks!
   pod 'SDWebImage'
   pod 'Toast-Swift', '~> 5.0.1'
-  pod 'Alamofire'
   pod 'SwiftAlertView', '~> 2.2.1'
+  pod 'Alamofire'
   # Pods for Reqres App
 end
